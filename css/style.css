@@ -1,0 +1,411 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Default styles */
+body, ul, img {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Header and navigation styling */ 
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: 0.5s linear;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(189, 147, 84, 0.9);
+    margin: 0;
+}
+
+.logo img {
+    max-width: 60px; 
+    margin-left: 20px;
+    margin-top: 7px; 
+}
+
+.fixed-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    text-align: center; 
+    margin: 0;
+}
+
+.fixed-nav ul li {
+    margin: 0; 
+    padding: 0;
+}
+
+.fixed-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 15px;
+    position: relative; 
+    transition: color 0.3s; 
+}
+
+.fixed-nav ul li a::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #BD9354; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fixed-nav ul li a:hover {
+    color: #F5CBA7;
+}
+
+.fixed-nav ul li a:hover::before {
+    transform: scaleX(1);
+}
+
+.fixed-nav.scrolled {
+    background-color: rgba(189, 147, 84, 0.9);
+}
+
+
+/* Cover styling */
+.cover {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    margin: 0; 
+}
+
+.cover img {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+}
+
+.cover-text {
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    position: relative; 
+    z-index: 1; 
+}
+
+.cover-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    margin: 0;
+}
+
+.cover-text p {
+    font-size: 1.5em;
+}
+
+/* About styling */
+.about-section {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    background-size: cover;
+    background-position: center;
+}
+
+/* Background image styling */
+.about-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.about-text {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    flex: 1; 
+    align-self: center; 
+}
+
+.about-text h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 5px;
+    display: inline-flex; /* Menggunakan display inline-flex */
+    justify-content: center;
+    align-items: center;
+    background-clip: text;
+    position: relative;
+}
+
+.about-text h2::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 2px;
+    background-color: black; /* Atur warna batas kanan */
+}
+
+
+.about-text p {
+    font-size: 1em;
+    color: whitesmoke;
+    text-align: justify; 
+    text-indent: 38px;
+    text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.about-text p:first-of-type::first-letter {
+    text-transform: capitalize; /* Gaya karakter awal besar */
+    font-size: 1.7em;
+}
+
+
+/* Menu */
+.coverMenu {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.coverMenu img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.menu-overlay {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    text-align: center;
+}
+
+.menu-title {
+    position: relative;
+    z-index: 2;
+}
+
+.menu-title h2 {
+    font-family: "Lora", sans-serif;
+    font-size: 25px;
+    padding-top: 30px;
+    text-align: center;
+    margin-left: 40px;
+}
+
+.menu-item-wrapper {
+    display: flex;
+}
+
+.signature {
+    margin-left: 10px;
+    margin-right: 25px;
+}
+
+.dessert {
+    margin-right: 40px;
+    margin-left: 25px;
+}
+
+.drinks {
+    margin-right: 55px;
+    margin-left: 15px;
+}
+
+.signature h3,
+.dessert h3,
+.drinks h3 {
+    font-family: "Lora", sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.signature hr,
+.dessert hr,
+.drinks hr {
+    width: 10%;
+    border: 2px solid black;
+}
+
+table {
+    width: 85%;
+    margin: 15px auto 35px auto;
+}
+
+table,
+tr,
+td {
+    padding: 15px 15px 9px 1px;
+    border-collapse: collapse;
+    color: black;
+    font-size: medium;
+}
+
+td.price {
+    text-align: right;
+    font-weight: 550;
+    color: black;
+    font-size: small;
+    font-style: italic;
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Visit Us */
+.visit-wrapper {
+    padding-bottom: 100px;
+    padding-top: 20px;
+}
+
+.visit-title h2 {
+    font-family: "Lora", sans-serif;
+    font-size: 35px;
+    padding-top: 0;
+    text-align: center;
+}
+
+.visit-desc {
+    text-align: center;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    width: 60%;
+    margin: 0 auto;
+    border: 10px solid burlywood;
+    padding: 20px; 
+}
+
+.visit-desc hr {
+    border: 0.8px solid burlywood;
+    height: 2px; 
+    margin: 0 10px; 
+}
+
+.visit-desc h3 {
+    font-family: "Lora", sans-serif;
+    margin-bottom: 10px;
+}
+
+.location,
+.open {
+    margin: 0 auto;
+}
+
+/* Founder */
+#founder.founder-section {
+    position: relative;
+    padding: 20px;
+    height: auto;
+    overflow: hidden; /* Menambahkan overflow hidden untuk menghindari latar belakang terlihat di luar konten aside */
+}
+
+.founder-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.founder-content {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: small;
+    position: relative;
+    z-index: 1;
+}
+
+.founder-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center top; 
+    overflow: hidden;
+    margin-right: 30px;
+    border-radius: 0; 
+}
+
+.founder-info h2 {
+    font-size: 2em;
+    margin-top: 0;
+    margin-left: 190px;
+}
+
+.founder-info p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    color: black;
+}
+
+
+/* Footer styling */
+footer {
+    background-color: #9E7540; 
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    font-size: smaller;
+    font-weight: 300;
+}
